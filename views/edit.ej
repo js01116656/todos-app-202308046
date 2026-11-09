@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo 수정</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>할 일 수정</h1>
+
+        <form action="/todos/<%= todo.id %>/edit" method="POST">
+            <input type="text" name="title"
+                   value="<%= todo.title %>" required>
+
+            <input type="date" name="due_date"
+                   value="<%= todo.due_date ? new Date(todo.due_date).toISOString().slice(0,10) : '' %>">
+
+            <button type="submit">수정 완료</button>
+        </form>
+
+        <a href="/todos">목록으로 돌아가기</a>
+    </div>
+</body>
+</html>
